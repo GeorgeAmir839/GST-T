@@ -14,6 +14,6 @@ class Product extends Model
         'images' => 'array',
     ];
     public function categories() :BelongsToMany{
-        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'category_product', 'product_id','category_id');
     }
 }
