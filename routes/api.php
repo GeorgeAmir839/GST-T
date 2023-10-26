@@ -14,13 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('sign-up', 'AuthController@');
+Route::post('register', 'AuthController@register');
+Route::post('login', 'AuthController@login');
 
 
 Route::middleware('auth:api')->group(function () {
+    //IndexController
+    Route::get('banners', 'IndexController@getBanners');
     //UserController
-    // Route::resource('users', UserController::class);
- 
+    Route::put('users/{id}', 'UserController@update');
+    Route::get('users/{id}', 'UserController@show');
+    Route::get('users', 'UserController@index');
+    //ProductController
+    Route::get('products', 'ProductController@index');
+
+
+    //CategoryController
+    Route::get('categories', 'CategoryController@index');
+    Route::get('categories/{id}', 'CategoryController@show');
+
+    //AddressController
+    Route::post('shipping-addresses', 'AddressController@storeShippingAddress');
+    Route::put('shipping-addresses/{id}', 'AddressController@updateShippingAddress');
+    Route::get('shipping-addresses', 'AddressController@shippingAddresses');
 });
 
 // Route::middleware('guest')->group(function () {
