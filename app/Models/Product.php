@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Product extends Model
 {
     use HasFactory;
-    public $fillable = ['name','description', 'main_image','image','old_price','price'];
+    public $fillable = ['name','description', 'main_image','images','old_price','price'];
     protected $casts = [
         'images' => 'array',
     ];
